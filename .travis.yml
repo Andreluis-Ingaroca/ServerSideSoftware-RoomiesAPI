@@ -1,5 +1,22 @@
+# Lenguaje que vamos a usar
 language: csharp
+dist: trusty
 mono: none
-dotnet: 2.1.502
+# Version del SDK de NetCore que queremos utilizar
+dotnet: 5.0.403
+# Matriz de sistemas operativos sobre los que queremos lanzar el CI
+os:
+  - linux
+  - osx
+# Comando que queremos ejecutar ANTES de compilar  
+install:
+- dotnet restore
+# Script de compilacion
 script:
- - dotnet restore
+  # Compilamos el proyecto
+- dotnet build
+  # Ejecutamos las pruebas unitarias
+- dotnet test Roomies.API.Test/Roomies.API.Test.csproj
+# No queremos que nos notifique por email los resultados
+-notifications:
+-  email: false
