@@ -1,9 +1,8 @@
 language: csharp
 solution: Roomies.API.sln
-
-jobs:
-  include:
-    - dotnet: 2.1.502
-      mono: none
-      env: DOTNETCORE=2  # optional, can be used to take different code paths in your script
-    - mono: latest
+install:
+  - nuget restore Roomies.API.sln
+  - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
+script:
+  - msbuild /p:Configuration=Release Roomies.API.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe Roomies.API/bin/Release/net5.0/Roomies.API.dll
