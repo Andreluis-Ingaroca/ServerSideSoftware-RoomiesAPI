@@ -3,7 +3,7 @@ language: csharp
 dist: trusty
 mono: none
 # Version del SDK de NetCore que queremos utilizar
-dotnet: 5.0.403
+dotnet: 2.1.301
 # Matriz de sistemas operativos sobre los que queremos lanzar el CI
 os:
   - linux
