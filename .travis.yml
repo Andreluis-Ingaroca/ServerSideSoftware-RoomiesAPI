@@ -4,4 +4,3 @@ dotnet: 5.0
 solution: Roomies.API.sln
 script:
   - dotnet restore
-  - dotnet test
