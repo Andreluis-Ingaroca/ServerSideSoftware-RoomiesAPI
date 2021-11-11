@@ -1,8 +1,10 @@
 language: csharp
 solution: ./Roomies.API/Roomies.API.sln
-install:
-  - nuget restore ./Roomies.API/Roomies.API.sln
-  - nuget install NUnit.Console -Version 3.12.0 -OutputDirectory testrunner
-script:
-  - msbuild /p:Configuration=Release ./Roomies.API/Roomies.API.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.12.0/tools/nunit-console.exe ./Roomies.API.Test/bin/Debug/net5.0/Roomies.API.Test.dll
+
+jobs:
+  include:
+    - dotnet: 5.0
+      mono: none
+      env: DOTNETCORE=5  # optional, can be used to take different code paths in your script
+    - mono: latest
+...
