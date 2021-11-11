@@ -1,6 +1,2 @@
 language: csharp
-dotnet: 2.1.502
 solution: ./Roomies.API/Roomies.API.sln
-mono: latest
-script:
-  - dotnet restore
